@@ -73,7 +73,7 @@ Some core examples of write streams are process.stdout and a filestream for if y
 process.stdin in a read stream.
 
 There are many types of stream modules you can use to do pre-built transformations on streams (like how split splits the data by newlines). You can also do your own transformations using the [through](https://github.com/dominictarr/through) module.
-Basically, through creates a readable stream that hands you the data and allows you to transform it and send it along to the next stream to be read (or just log it or whatever you want to do with it).
+Basically, through creates a duplex stream that hands you the data and allows you to transform it and send it along to the next stream to be read (or just log it or whatever you want to do with it).
 
     //data is whatever is read from process.stdin, which I believe is a buffer
     var write = function(data) {
