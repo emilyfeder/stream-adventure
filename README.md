@@ -59,12 +59,12 @@ The main differences between a readable and writeable stream is that a readable 
         //this event occurs when there is no more data to be sent.
     });
     
-When you use a pipe, it will deal with these events. Again, use the documentation to learn what exactly the stream is doing to the data. For example, split() converts the data into a string and separates it by newlines, now the data passed into the next piped stream is chunked into lines.
+When you use a pipe, it will deal with these events. Again, use the documentation for the particular stream to learn what exactly it is doing to the data. For example, split() converts the data into a string and separates it by newlines, now the data passed into the next piped stream is chunked into lines.
 
 For example:
 
-    readable.pipe(split()).pipe(readable2);
-    readable2.on('data', function(line) {
+    readable.pipe(split()).pipe(duplex);
+    duplex.on('data', function(line) {
         //now each 'data' event will send the next line from the text passed from the readable stream.
         //line in this case is a buffer object, on which you can call toString() to turn it into a string
     });
