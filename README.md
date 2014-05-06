@@ -1,4 +1,4 @@
-stream-adventure
+[stream-adventure](https://github.com/substack/stream-adventure)
 ================
 
 I work my way through the node-school lesson.
