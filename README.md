@@ -63,6 +63,7 @@ When you use a pipe, it will handle those events for you. Again, use the documen
 
 For example:
 
+    var split = require('split');
     readable.pipe(split()).pipe(duplex);
     duplex.on('data', function(line) {
         //now each 'data' event will send the next line from the text passed from the readable stream.
@@ -75,6 +76,7 @@ process.stdin in a read stream.
 There are many types of stream modules you can use to do pre-built transformations on streams (like how split splits the data by newlines). You can also do your own transformations using the [through](https://github.com/dominictarr/through) module.
 Basically, through creates a duplex stream that hands you the data and allows you to transform it and send it along to the next stream to be read (or just log it or whatever you want to do with it).
 
+    var through = require('through');
     //data is whatever is read from process.stdin, which I believe is a buffer
     var write = function(data) {
         //here 'this' is scoped to the duplex stream, and we are writing the transformed data to be read again from
